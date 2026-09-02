@@ -38,6 +38,7 @@ class TestDatasetDTO(unittest.TestCase):
                 id = 56,
                 name = '0',
                 owning_team = '0',
+                source_system = '0',
                 tags = [
                     ''
                     ],
@@ -55,6 +56,7 @@ class TestDatasetDTO(unittest.TestCase):
             return DatasetDTO(
                 name = '0',
                 owning_team = '0',
+                source_system = '0',
                 tags = [
                     ''
                     ],

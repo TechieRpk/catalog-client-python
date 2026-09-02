@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **name** | **str** |  | 
 **owning_team** | **str** |  | 
+**source_system** | **str** |  | 
 **tags** | **List[str]** |  | 
 **sensitivity** | [**DatasetSensitivity**](DatasetSensitivity.md) |  | 
 **retention_days** | **int** |  | 

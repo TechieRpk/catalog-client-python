@@ -34,13 +34,14 @@ class DatasetDTO(BaseModel):
     id: Optional[StrictInt] = None
     name: Annotated[str, Field(min_length=1, strict=True)]
     owning_team: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="owningTeam")
+    source_system: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="sourceSystem")
     tags: List[StrictStr]
     sensitivity: DatasetSensitivity
     retention_days: StrictInt = Field(alias="retentionDays")
     refresh_interval_hours: StrictInt = Field(alias="refreshIntervalHours")
     schema_fields: List[FieldDTO] = Field(alias="schemaFields")
     updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "name", "owningTeam", "tags", "sensitivity", "retentionDays", "refreshIntervalHours", "schemaFields", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["id", "name", "owningTeam", "sourceSystem", "tags", "sensitivity", "retentionDays", "refreshIntervalHours", "schemaFields", "updatedAt"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -113,6 +114,7 @@ class DatasetDTO(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "owningTeam": obj.get("owningTeam"),
+            "sourceSystem": obj.get("sourceSystem"),
             "tags": obj.get("tags"),
             "sensitivity": obj.get("sensitivity"),
             "retentionDays": obj.get("retentionDays"),
