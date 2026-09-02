@@ -37,11 +37,13 @@ class TestDatasetDTO(unittest.TestCase):
             return DatasetDTO(
                 id = 56,
                 name = '0',
-                owner = '0',
+                owning_team = '0',
                 tags = [
                     ''
                     ],
                 sensitivity = 'PUBLIC',
+                retention_days = 56,
+                refresh_interval_hours = 56,
                 schema_fields = [
                     catalog_client.models.field_dto.FieldDTO(
                         name = '0', 
@@ -52,11 +54,13 @@ class TestDatasetDTO(unittest.TestCase):
         else:
             return DatasetDTO(
                 name = '0',
-                owner = '0',
+                owning_team = '0',
                 tags = [
                     ''
                     ],
                 sensitivity = 'PUBLIC',
+                retention_days = 56,
+                refresh_interval_hours = 56,
                 schema_fields = [
                     catalog_client.models.field_dto.FieldDTO(
                         name = '0', 

@@ -1,6 +1,7 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
+.openapi-generator-ignore
 .travis.yml
 README.md
 catalog_client/__init__.py
@@ -27,4 +28,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_dataset_dto.py
+test/test_dataset_sensitivity.py
+test/test_datasets_api.py
+test/test_field_dto.py
 tox.ini

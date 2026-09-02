@@ -33,12 +33,14 @@ class DatasetDTO(BaseModel):
     """ # noqa: E501
     id: Optional[StrictInt] = None
     name: Annotated[str, Field(min_length=1, strict=True)]
-    owner_team: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="ownerTeam")
+    owning_team: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="owningTeam")
     tags: List[StrictStr]
     sensitivity: DatasetSensitivity
+    retention_days: StrictInt = Field(alias="retentionDays")
+    refresh_interval_hours: StrictInt = Field(alias="refreshIntervalHours")
     schema_fields: List[FieldDTO] = Field(alias="schemaFields")
     updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "name", "ownerTeam", "tags", "sensitivity", "schemaFields", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["id", "name", "owningTeam", "tags", "sensitivity", "retentionDays", "refreshIntervalHours", "schemaFields", "updatedAt"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -110,9 +112,11 @@ class DatasetDTO(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "ownerTeam": obj.get("ownerTeam"),
+            "owningTeam": obj.get("owningTeam"),
             "tags": obj.get("tags"),
             "sensitivity": obj.get("sensitivity"),
+            "retentionDays": obj.get("retentionDays"),
+            "refreshIntervalHours": obj.get("refreshIntervalHours"),
             "schemaFields": [FieldDTO.from_dict(_item) for _item in obj["schemaFields"]] if obj.get("schemaFields") is not None else None,
             "updatedAt": obj.get("updatedAt")
         })
