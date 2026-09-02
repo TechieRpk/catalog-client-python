@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **name** | **str** |  | 
-**owner_team** | **str** |  | 
+**owning_team** | **str** |  | 
 **tags** | **List[str]** |  | 
 **sensitivity** | [**DatasetSensitivity**](DatasetSensitivity.md) |  | 
+**retention_days** | **int** |  | 
+**refresh_interval_hours** | **int** |  | 
 **schema_fields** | [**List[FieldDTO]**](FieldDTO.md) |  | 
 **updated_at** | **datetime** |  | [optional] 
 
